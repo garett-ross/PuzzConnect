@@ -35,12 +35,12 @@
             new Card("Metal", "Baby"),
             new Card("Jojo Maman", "Baby"),
             new Card("ccino", "Baby"),
-            new Card("Cakes", "Baby"),
+            new Card("Ice ice", "Baby"),
             new Card("Sweet", "16"),
             new Card("4*4", "16"),
             new Card("Hexadecimal", "16"),
-            new Card("16", "16"),
-            new Card("Winter", "December"),
+            new Card("Candles", "16"),
+            new Card("Saggitarius/Capricorn", "December"),
             new Card("Christmas", "December"),
             new Card("12", "December"),
             new Card("Midwinter", "December"),
@@ -165,6 +165,7 @@
             promptForRowConnection();
             } else {
             alert('All rows have been guessed!');
+            askFinalQuestion();
             }
             }
 
@@ -187,6 +188,17 @@
             function isFuzzyMatch(input, options) {
             const normalizedInput = input.trim().toLowerCase();
             return options.some(option => option.includes(normalizedInput) || normalizedInput.includes(option));
+            }
+
+            function askFinalQuestion() {
+            const answer = prompt("What is Catriona's secret?");
+            if (answer && answer.toLowerCase() === "we're havin a baby, the due date is 16th december") {
+            alert("Correct! Congratulations!");
+            points += 5; // Add bonus points for the final question
+            updatePointsDisplay();
+            } else {
+            alert("Incorrect. The correct answer is: We're havin a baby, the due date is 16th December");
+            }
             }
 
             document.addEventListener('DOMContentLoaded', () => {
