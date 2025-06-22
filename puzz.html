@@ -51,9 +51,9 @@
             ]);
 
             const groupOptions = {
-            Baby: ["baby"],
-            16: ["16"],
-            December: ["december"],
+            Baby: ["baby", "bebe"],
+            16: ["16", "sixteen"],
+            December: ["december","12"],
             Grandparents: ["grandmother", "grandfather", "grandparents"]
             };
 
@@ -158,7 +158,7 @@
             arrangeRow4AfterRow3(rows[3]);
             }
             } else {
-            alert('Incorrect connection. Try again.');
+            alert('Incorrect connection. Try the next row.');
             }
             rows[currentRow].forEach(card => card.classList.remove('highlight'));
             currentRow++;
@@ -191,8 +191,8 @@
             }
 
             function askFinalQuestion() {
-            const answer = prompt("What is Catriona's secret?");
-            if (answer && answer.toLowerCase() === "we're havin a baby, the due date is 16th december") {
+            const answer = prompt("What connects all the rows?");
+            if (answer && isFuzzyMatch(answer, ["we're having a baby", "due date is 16th December", "baby due 16th December", "hav","baby", "bebe"])) {
             alert("Correct! Congratulations!");
             points += 5; // Add bonus points for the final question
             updatePointsDisplay();
